@@ -3,6 +3,11 @@ const getTasks = (req, res) => {
 };
 
 const setTask = (req, res) => {
+  if (!req.body.text) {
+    res.status(400);
+    throw new Error("Please enter a task");
+  }
+
   res.status(200).json({ message: "Create Task" });
 };
 
@@ -14,4 +19,4 @@ const deleteTask = (req, res) => {
   res.status(200).json({ message: `Task ${req.params.id} deleted.` });
 };
 
-module.exports = { getTasks,setTask,updateTask,deleteTask };
+module.exports = { getTasks, setTask, updateTask, deleteTask };
