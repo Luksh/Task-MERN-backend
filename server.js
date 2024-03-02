@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/tasks", require("./Routes/taskRoutes"));
+app.use("/api/users", require("./Routes/userRoutes"));
 app.use(errorHandler);
 
 app.listen(port, () => {
